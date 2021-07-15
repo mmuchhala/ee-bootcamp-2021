@@ -1,7 +1,13 @@
 package com.equalexperts.bootcamp.mathworks;
 
-import java.util.List;
+import com.equalexperts.bootcamp.mathworks.conditions.Condition;
 
-public interface Filter {
-    List<Integer> filter(List<Integer>  numbers);
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Filter {
+
+    public static List<Integer> filter(List<Integer> numbers, Condition condition) {
+        return numbers.stream().filter(condition::isConditionSatisfied).collect(Collectors.toList());
+    }
 }
